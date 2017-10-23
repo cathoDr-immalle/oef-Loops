@@ -24,5 +24,14 @@ namespace oef_Loops
         {
             InitializeComponent();
         }
+
+        private void MijnKnop_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                MijnTekstbox.AppendText(i + Environment.NewLine);
+                MijnTekstbox.AppendText((i * i * i) + Environment.NewLine);
+            }
+        }
     }
 }
