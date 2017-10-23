@@ -20,7 +20,6 @@ namespace oef_Loops
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Ellipse ellipse;
 
         public MainWindow()
         {
@@ -44,23 +43,23 @@ namespace oef_Loops
         {
             int vertical = Convert.ToInt32(VertSlider.Value);
             VertLabel.Content = Convert.ToString(vertical);
+            UpdateEllipse();
         }
 
         private void HorSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int horizontal = Convert.ToInt32(HorSlider.Value);
             HorLabel.Content = Convert.ToString(horizontal);
+            UpdateEllipse();
         }
 
         private void DrawElîpse()
         {
-            ellipse = new Ellipse();
             ellipse.Width = HorSlider.Value;
             ellipse.Height = VertSlider.Value;
             ellipse.Stroke = new SolidColorBrush(Colors.Black);
             ellipse.Fill = new SolidColorBrush(Colors.Black);
             ellipse.Margin = new Thickness(0, 0, 0, 0);
-            MijnCanvas.Children.Add(ellipse);
         }
 
         private void UpdateEllipse()
