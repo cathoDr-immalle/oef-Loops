@@ -20,18 +20,54 @@ namespace oef_Loops
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Ellipse ellipse;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            VertSlider.Minimum = 0;
+            VertSlider.Maximum = MijnCanvas.Height;
+
+            HorSlider.Minimum = 0;
+            HorSlider.Maximum = MijnCanvas.Width;
+
+            VertLabel.Content = Convert.ToString(VertSlider.Value);
+            HorLabel.Content = Convert.ToString(HorSlider.Value);
+
+            DrawElîpse();
         }
 
-        private void MijnKnop_Click(object sender, RoutedEventArgs e)
+
+
+        private void VertSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            for (int i = 1; i <= 10; i++)
-            {
-                MijnTekstbox.AppendText(i + Environment.NewLine);
-                MijnTekstbox.AppendText((i * i * i) + Environment.NewLine);
-            }
+            int vertical = Convert.ToInt32(VertSlider.Value);
+            VertLabel.Content = Convert.ToString(vertical);
         }
+
+        private void HorSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int horizontal = Convert.ToInt32(HorSlider.Value);
+            HorLabel.Content = Convert.ToString(horizontal);
+        }
+
+        private void DrawElîpse()
+        {
+            ellipse = new Ellipse();
+            ellipse.Width = HorSlider.Value;
+            ellipse.Height = VertSlider.Value;
+            ellipse.Stroke = new SolidColorBrush(Colors.Black);
+            ellipse.Fill = new SolidColorBrush(Colors.Black);
+            ellipse.Margin = new Thickness(0, 0, 0, 0);
+            MijnCanvas.Children.Add(ellipse);
+        }
+
+        private void UpdateEllipse()
+        {
+            ellipse.Width = HorSlider.Value;
+            ellipse.Height = VertSlider.Value;
+        }
+
     }
 }

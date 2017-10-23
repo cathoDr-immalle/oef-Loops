@@ -7,8 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="MijnKnop" Content="Toon" HorizontalAlignment="Left" Height="31" Margin="27,57,0,0" VerticalAlignment="Top" Width="169" Click="MijnKnop_Click"/>
-        <TextBox x:Name="MijnTekstbox" HorizontalAlignment="Left" Height="234" Margin="246,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" Background="#FFB8B6B6"/>
+        <Slider x:Name="HorSlider" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="304" Margin="189,248,0,0" Background="#FFF9F6F6" Foreground="#FFC1BBBB" ValueChanged="HorSlider_ValueChanged"/>
+        <Canvas x:Name="MijnCanvas" HorizontalAlignment="Left" Height="200" Margin="189,30,0,0" VerticalAlignment="Top" Width="300" Background="#FFCFCDCD">
+            <Ellipse x:Name="ellipse" Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
+        </Canvas>
+        <Slider x:Name="VertSlider" HorizontalAlignment="Left" Height="23" Margin="60,118,0,0" VerticalAlignment="Top" Width="197" RenderTransformOrigin="0.5,0.5" ValueChanged="VertSlider_ValueChanged">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.061"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Label x:Name="VertLabel" Content="Label" HorizontalAlignment="Left" Height="28" Margin="48,111,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label x:Name="HorLabel" Content="Label" HorizontalAlignment="Left" Height="31" Margin="297,278,0,0" VerticalAlignment="Top" Width="63"/>
 
     </Grid>
 </Window>
